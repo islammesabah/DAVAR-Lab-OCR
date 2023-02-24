@@ -1,10 +1,10 @@
 # model settings
-character = '/path/to/davarocr/demo/TRIE/data/flatten_dict.txt'
+character = './data/wildreceipt/flatten_dict.txt'
 batch_max_length = 60
 type="SPOTTER"
 model = dict(
     type='TRIEGT',
-    pretrained='/path/to/resnet50-19c8e357.pth',
+    pretrained='./models/resnet50-19c8e357.pth',
     backbone=dict(
         type='ResNet',
         depth=50,
@@ -234,21 +234,21 @@ data = dict(
     workers_per_gpu=0,
     train=dict(
         type=dataset_type,
-        ann_file='/path/to/davarocr/demo/text_ie/datalist/wildreceipt/datalist_train.json',
+        ann_file='./data/wildreceipt/datalist_train.json',
         img_prefix='path_to_root_img_dir',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file='/path/to/davarocr/demo/text_ie/datalist/wildreceipt/datalist_test.json',
+        ann_file='./data/wildreceipt/datalist_test.json',
         img_prefix='path_to_root_img_dir',
         pipeline=test_pipeline,
-        classes='/path/to/davarocr/demo/text_ie/datalist/wildreceipt/class_list.txt'),
+        classes='./data/wildreceipt/class_list.txt'),
     test=dict(
         type=dataset_type,
-        ann_file='/path/to/davarocr/demo/text_ie/datalist/wildreceipt/datalist_test.json',
+        ann_file='./data/wildreceipt/datalist_test.json',
         img_prefix='path_to_root_img_dir',
         pipeline=test_pipeline,
-        classes='/path/to/davarocr/demo/text_ie/datalist/wildreceipt/class_list.txt'))
+        classes='./data/wildreceipt/class_list.txt'))
 # optimizer
 find_unused_parameters = True
 optimizer = dict(type='AdamW', betas=(0.9, 0.999), eps=1e-8, lr=1e-3, weight_decay=0)
@@ -273,7 +273,7 @@ log_config = dict(
 # runtime settings
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = '/path/to/davarocr/demo/text_ie/trie/log/wildreceipt_gt'
+work_dir = './log/wildreceipt_gt'
 load_from = None
 resume_from = None
 workflow = [('train', 1)]
