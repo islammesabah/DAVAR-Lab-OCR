@@ -112,5 +112,5 @@ if __name__ == '__main__':
         ],
         license='Apache License 2.0',
         url='https://davar-lab.github.io/',
-        all_requires= parse_requirements('requirements.txt')
+        install_requires= parse_requirements('requirements.txt')
     )
